@@ -1,0 +1,25 @@
+[
+  
+  {
+    "slug": "articles-filtering-by-category",
+    "title": "Articles filtering by category",
+    "categories": ["CMS & Builders"],
+    "description": "Implemented custom Article filtering component using Finsweet CMS Filter",
+    "markdownPath": "articles-filtering-by-category.md",
+    "heroImage": "/public/articles/articles-filtering-by-category/project-screenshot.png"
+  },
+  {
+    "slug": "student-drill-down",
+    "title": "Student Drill Down",
+    "categories": ["Front-End", "Back-End"],
+    "description": "Created an interface for coaching employees and management to see all records relating to a student from one interface. Combines 8 database table relationships into a single, easy to use interface.",
+    "markdownPath": "student-drill-down.md"
+  },
+  {
+    "slug": "admin-dashboard",
+    "title": "Admin Dashboard",
+    "categories": ["Front-End", "Back-End"],
+    "description": "Created an admin dashboard for admins and team leads to easily access buisiness critical information.",
+    "markdownPath": "admin-dashboard.md"
+  }
+]

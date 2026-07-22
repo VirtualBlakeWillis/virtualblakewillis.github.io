@@ -129,6 +129,7 @@
 
   body {
     @apply bg-background text-foreground;
+    font-family: 'Open Sans', sans-serif;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
   }
@@ -185,4 +186,25 @@
 
 html {
   font-size: var(--font-size);
+}
+
+/* Hero section label slide animations */
+@keyframes hero-label-exit-up {
+  from { transform: translateY(0); opacity: 1; }
+  to   { transform: translateY(-110%); opacity: 0; }
+}
+
+@keyframes hero-label-enter-below {
+  from { transform: translateY(110%); opacity: 0; }
+  to   { transform: translateY(0); opacity: 1; }
+}
+
+@keyframes hero-label-exit-down {
+  from { transform: translateY(0); opacity: 1; }
+  to   { transform: translateY(110%); opacity: 0; }
+}
+
+@keyframes hero-label-enter-above {
+  from { transform: translateY(-110%); opacity: 0; }
+  to   { transform: translateY(0); opacity: 1; }
 }

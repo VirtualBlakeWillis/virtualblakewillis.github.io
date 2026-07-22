@@ -1,6 +1,8 @@
 /* eslint-disable @typescript-eslint/no-unused-vars */
 import { useParams, Link } from "react-router";
 import { useEffect, useState } from "react";
+import { motion } from "motion/react";
+import { ArrowLeft } from "lucide-react";
 import ReactMarkdown from "react-markdown";
 import { learncraftProjects, getArticleForProject, loadArticleContent } from "../data/articles";
 import { slugify } from "../utils/slugify";
@@ -11,13 +13,9 @@ export function LearncraftArticleDetailPage() {
   const [isLoading, setIsLoading] = useState<boolean>(true);
   const [loadError, setLoadError] = useState<string | null>(null);
 
-  // Find the project by slug
   const project = learncraftProjects.find((p) => slugify(p.title) === slug);
-  
-  // Get the corresponding article metadata
   const article = project ? getArticleForProject(project.title) : undefined;
 
-  // Load markdown content when article is found
   useEffect(() => {
     if (article && slug) {
       setIsLoading(true);
@@ -37,21 +35,80 @@ export function LearncraftArticleDetailPage() {
     }
   }, [article, slug]);
 
+  // ── Not found ──
   if (!project) {
     return (
-      <div className="min-h-screen bg-slate-900 text-white">
-        <section className="py-16 px-6 pt-24">
-          <div className="max-w-5xl mx-auto space-y-6">
+      <div
+        className="min-h-screen"
+        style={{ fontFamily: "'Open Sans', sans-serif", backgroundColor: "#fafafa" }}
+      >
+        <section className="py-32 px-6">
+          <div className="max-w-5xl mx-auto">
             <Link
-              to="/learncraftspanish"
-              className="flex items-center gap-2 text-sm font-semibold text-pink-200 transition hover:text-white"
+              to="/portfolio"
+              className="inline-flex items-center gap-2"
+              style={{
+                fontFamily: "'Open Sans', sans-serif",
+                fontSize: "11px",
+                letterSpacing: "0.2em",
+                textTransform: "uppercase",
+                fontWeight: 600,
+                color: "#888888",
+                textDecoration: "none",
+                marginBottom: "3rem",
+                display: "inline-flex",
+                transition: "color 0.15s",
+              }}
+              onMouseEnter={(e) => {
+                (e.currentTarget as HTMLAnchorElement).style.color = "#0a0a0a";
+              }}
+              onMouseLeave={(e) => {
+                (e.currentTarget as HTMLAnchorElement).style.color = "#888888";
+              }}
             >
-              ← Back to Learncraft Spanish
+              <ArrowLeft size={13} />
+              Back to Portfolio
             </Link>
-            <div className="text-center py-12">
-              <h2 className="text-3xl font-bold">Project not found</h2>
-              <p className="mt-4 text-slate-300">The project you're looking for doesn't exist.</p>
+
+            <div style={{ borderBottom: "1px solid #e5e5e5", paddingBottom: "2rem", marginBottom: "2rem" }}>
+              <p
+                style={{
+                  fontFamily: "'Open Sans', sans-serif",
+                  fontSize: "11px",
+                  letterSpacing: "0.28em",
+                  textTransform: "uppercase",
+                  color: "#aaaaaa",
+                  marginBottom: "1rem",
+                }}
+              >
+                404
+              </p>
+              <h1
+                style={{
+                  fontFamily: "'Open Sans', sans-serif",
+                  fontSize: "clamp(2rem, 4vw, 3.5rem)",
+                  fontWeight: 700,
+                  color: "#0a0a0a",
+                  lineHeight: 1.1,
+                  letterSpacing: "-0.02em",
+                }}
+              >
+                Project{" "}
+                <span style={{ fontFamily: "'Bungee', cursive", fontWeight: 400 }}>
+                  not found.
+                </span>
+              </h1>
             </div>
+            <p
+              style={{
+                fontFamily: "'Open Sans', sans-serif",
+                fontSize: "1rem",
+                color: "#666666",
+                lineHeight: 1.75,
+              }}
+            >
+              The project you're looking for doesn't exist.
+            </p>
           </div>
         </section>
       </div>
@@ -59,112 +116,334 @@ export function LearncraftArticleDetailPage() {
   }
 
   return (
-    <div className="min-h-screen bg-slate-900 text-white">
-      {/* Hero Section with Project Info */}
-      <section className="py-16 px-6 pt-24">
-        <div className="max-w-5xl mx-auto space-y-6">
-          <Link
-            to="/portfolio"
-            className="flex items-center gap-2 text-sm font-semibold text-pink-200 transition hover:text-white"
+    <div
+      className="min-h-screen"
+      style={{ fontFamily: "'Open Sans', sans-serif", backgroundColor: "#fafafa" }}
+    >
+      {/* ── Hero / Project Header ── */}
+      <section className="py-32 px-6" style={{ backgroundColor: "#fafafa" }}>
+        <div className="max-w-5xl mx-auto">
+
+          {/* Back link */}
+          <motion.div
+            initial={{ opacity: 0, x: -10 }}
+            animate={{ opacity: 1, x: 0 }}
+            transition={{ duration: 0.5 }}
+            style={{ marginBottom: "3rem" }}
           >
-            ← Back to Articles
-          </Link>
+            <Link
+              to="/portfolio"
+              className="inline-flex items-center gap-2"
+              style={{
+                fontFamily: "'Open Sans', sans-serif",
+                fontSize: "11px",
+                letterSpacing: "0.2em",
+                textTransform: "uppercase",
+                fontWeight: 600,
+                color: "#888888",
+                textDecoration: "none",
+                transition: "color 0.15s",
+              }}
+              onMouseEnter={(e) => {
+                (e.currentTarget as HTMLAnchorElement).style.color = "#0a0a0a";
+              }}
+              onMouseLeave={(e) => {
+                (e.currentTarget as HTMLAnchorElement).style.color = "#888888";
+              }}
+            >
+              <ArrowLeft size={13} />
+              Back to Portfolio
+            </Link>
+          </motion.div>
 
-          <div className="space-y-4">
-            <span className="text-xs uppercase tracking-[0.4em] text-pink-300">{project.categories.join(", ")}</span>
-            <h1 className="text-4xl md:text-5xl font-bold leading-tight">{project.title}</h1>
-            {/* <p className="text-xl text-slate-200">{project.description}</p> */}
-          </div>
+          {/* Categories eyebrow */}
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8 }}
+          >
+            <p
+              style={{
+                fontFamily: "'Open Sans', sans-serif",
+                fontSize: "11px",
+                letterSpacing: "0.28em",
+                textTransform: "uppercase",
+                color: "#aaaaaa",
+                marginBottom: "1.25rem",
+              }}
+            >
+              {project.categories.join(" · ")}
+            </p>
+            <h1
+              style={{
+                fontFamily: "'Open Sans', sans-serif",
+                fontSize: "clamp(3rem, 5vw, 5.25rem)",
+                fontWeight: 700,
+                lineHeight: 1.05,
+                letterSpacing: "-0.02em",
+                color: "#0a0a0a",
+                marginBottom: "2rem",
+              }}
+            >
+              {project.title}
+            </h1>
+          </motion.div>
 
+          {/* Hero image */}
           {project.image && (
-            <div className="rounded-2xl overflow-hidden border border-white/10">
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8, delay: 0.2 }}
+              style={{
+                borderRadius: "14px",
+                overflow: "hidden",
+                border: "1px solid #ebebeb",
+                boxShadow: "0 12px 40px rgba(0,0,0,0.08), 0 2px 8px rgba(0,0,0,0.04)",
+              }}
+            >
               <img
                 src={project.image}
                 alt={`${project.title} preview`}
-                className="w-full h-auto"
+                style={{ width: "100%", height: "auto", display: "block" }}
               />
-            </div>
+            </motion.div>
           )}
         </div>
       </section>
 
-      {/* Article Content Section */}
+      {/* ── Article Content ── */}
       {article && (
-        <section className="py-8 pb-16 px-6 bg-slate-800/50">
-          <div className="max-w-5xl mx-auto space-y-6">
+        <section className="py-16 pb-32 px-6" style={{ backgroundColor: "#f7f7f7" }}>
+          <div className="max-w-5xl mx-auto">
+
+            {/* Loading state */}
             {isLoading && (
-              <div className="text-center py-12">
-                <p className="text-slate-400">Loading article content...</p>
+              <div
+                style={{
+                  backgroundColor: "#ffffff",
+                  borderRadius: "14px",
+                  border: "1px solid #ebebeb",
+                  padding: "3rem",
+                  textAlign: "center",
+                }}
+              >
+                <p
+                  style={{
+                    fontFamily: "'Open Sans', sans-serif",
+                    fontSize: "0.875rem",
+                    color: "#888888",
+                  }}
+                >
+                  Loading article content…
+                </p>
               </div>
             )}
+
+            {/* Error state */}
             {loadError && (
-              <div className="rounded-lg border border-red-500/50 bg-red-500/10 p-4">
-                <p className="text-red-300">Error loading article: {loadError}</p>
+              <div
+                style={{
+                  backgroundColor: "#ffffff",
+                  borderRadius: "14px",
+                  border: "1px solid #ebebeb",
+                  boxShadow: "0 4px 20px rgba(0,0,0,0.05)",
+                  padding: "1.5rem",
+                }}
+              >
+                <p
+                  style={{
+                    fontFamily: "'Open Sans', sans-serif",
+                    fontSize: "0.875rem",
+                    color: "#666666",
+                  }}
+                >
+                  Error loading article: {loadError}
+                </p>
               </div>
             )}
+
+            {/* Markdown content */}
             {!isLoading && !loadError && markdownContent && (
-              <div className="prose prose-invert prose-lg max-w-none text-slate-100">
+              <motion.div
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.6 }}
+                style={{
+                  backgroundColor: "#ffffff",
+                  borderRadius: "14px",
+                  border: "1px solid #ebebeb",
+                  boxShadow: "0 4px 20px rgba(0,0,0,0.05), 0 1px 4px rgba(0,0,0,0.04)",
+                  padding: "2.5rem",
+                }}
+              >
                 <ReactMarkdown
                   components={{
                     img: ({ node, ...props }) => (
-                      <figure className="my-8">
+                      <figure style={{ margin: "2rem 0" }}>
                         <img
                           {...props}
                           alt={props.alt || ""}
-                          className="w-full h-auto rounded-xl border border-white/10 shadow-lg"
+                          style={{
+                            width: "100%",
+                            height: "auto",
+                            borderRadius: "14px",
+                            border: "1px solid #ebebeb",
+                            boxShadow: "0 4px 20px rgba(0,0,0,0.05)",
+                            display: "block",
+                          }}
                           loading="lazy"
                         />
                         {props.alt && (
-                          <figcaption className="mt-3 text-sm text-center text-slate-400 italic">
+                          <figcaption
+                            style={{
+                              marginTop: "0.75rem",
+                              fontFamily: "'Open Sans', sans-serif",
+                              fontSize: "0.8rem",
+                              textAlign: "center",
+                              color: "#888888",
+                              fontStyle: "italic",
+                            }}
+                          >
                             {props.alt}
                           </figcaption>
                         )}
                       </figure>
                     ),
                     h1: ({ node, ...props }) => (
-                      <h1 className="text-4xl font-bold mt-8 mb-4 text-white" {...props} />
+                      <h1
+                        style={{
+                          fontFamily: "'Open Sans', sans-serif",
+                          fontSize: "clamp(2rem, 4vw, 2.75rem)",
+                          fontWeight: 700,
+                          color: "#0a0a0a",
+                          lineHeight: 1.1,
+                          letterSpacing: "-0.02em",
+                          marginTop: "2.5rem",
+                          marginBottom: "1rem",
+                          borderBottom: "1px solid #e5e5e5",
+                          paddingBottom: "0.75rem",
+                        }}
+                        {...props}
+                      />
                     ),
                     h2: ({ node, ...props }) => (
-                      <h2 className="text-3xl font-semibold mt-8 mb-4 text-white" {...props} />
+                      <h2
+                        style={{
+                          fontFamily: "'Open Sans', sans-serif",
+                          fontSize: "clamp(1.5rem, 3vw, 2rem)",
+                          fontWeight: 700,
+                          color: "#0a0a0a",
+                          lineHeight: 1.15,
+                          letterSpacing: "-0.01em",
+                          marginTop: "2rem",
+                          marginBottom: "0.75rem",
+                        }}
+                        {...props}
+                      />
                     ),
                     h3: ({ node, ...props }) => (
-                      <h3 className="text-2xl font-semibold mt-6 mb-3 text-white" {...props} />
+                      <h3
+                        style={{
+                          fontFamily: "'Open Sans', sans-serif",
+                          fontSize: "1.25rem",
+                          fontWeight: 700,
+                          color: "#0a0a0a",
+                          letterSpacing: "-0.01em",
+                          marginTop: "1.5rem",
+                          marginBottom: "0.5rem",
+                        }}
+                        {...props}
+                      />
                     ),
                     p: ({ node, children, ...props }) => {
-                      // Don't wrap in <p> if the only child is an image
-                      if (Array.isArray(children) && children.length === 1 && children[0].type === 'img') {
+                      if (
+                        Array.isArray(children) &&
+                        children.length === 1 &&
+                        (children[0] as React.ReactElement)?.type === "img"
+                      ) {
                         return <>{children}</>;
                       }
-                      return <p className="mb-4 leading-7 text-slate-200" {...props}>{children}</p>;
+                      return (
+                        <p
+                          style={{
+                            fontFamily: "'Open Sans', sans-serif",
+                            fontSize: "0.95rem",
+                            color: "#555555",
+                            lineHeight: 1.75,
+                            marginBottom: "1.25rem",
+                          }}
+                          {...props}
+                        >
+                          {children}
+                        </p>
+                      );
                     },
                     ul: ({ node, ...props }) => (
-                      <ul className="list-disc mb-4 space-y-2 text-slate-200" {...props} />
+                      <ul
+                        style={{
+                          listStyleType: "disc",
+                          paddingLeft: "1.5rem",
+                          marginBottom: "1.25rem",
+                          fontFamily: "'Open Sans', sans-serif",
+                          fontSize: "0.95rem",
+                          color: "#555555",
+                          lineHeight: 1.75,
+                        }}
+                        {...props}
+                      />
                     ),
                     ol: ({ node, ...props }) => (
-                      <ol className="list-decimal list-inside mb-4 space-y-2 text-slate-200" {...props} />
+                      <ol
+                        style={{
+                          listStyleType: "decimal",
+                          paddingLeft: "1.5rem",
+                          marginBottom: "1.25rem",
+                          fontFamily: "'Open Sans', sans-serif",
+                          fontSize: "0.95rem",
+                          color: "#555555",
+                          lineHeight: 1.75,
+                        }}
+                        {...props}
+                      />
                     ),
                     li: ({ node, ...props }) => (
-                      <li className="ml-4" {...props} />
+                      <li style={{ marginBottom: "0.35rem" }} {...props} />
                     ),
                     a: ({ node, ...props }) => (
                       <a
-                        className="text-pink-300 hover:text-pink-200 underline transition"
+                        style={{
+                          color: "#111111",
+                          textDecoration: "underline",
+                          textUnderlineOffset: "3px",
+                          transition: "color 0.15s",
+                        }}
                         target="_blank"
                         {...props}
                       />
                     ),
-                    code: ({ node, ...props }) =>
-                     (
-                        <code
-                          className="block bg-slate-900 p-4 rounded-lg overflow-x-auto text-sm font-mono"
-                          {...props}
-                        />
-                      )
+                    code: ({ node, ...props }) => (
+                      <code
+                        style={{
+                          display: "block",
+                          backgroundColor: "#f7f7f7",
+                          border: "1px solid #e5e5e5",
+                          borderRadius: "10px",
+                          padding: "1rem 1.25rem",
+                          overflowX: "auto",
+                          fontSize: "0.85rem",
+                          fontFamily: "monospace",
+                          color: "#333333",
+                          marginBottom: "1.25rem",
+                        }}
+                        {...props}
+                      />
+                    ),
                   }}
                 >
                   {markdownContent}
                 </ReactMarkdown>
-              </div>
+              </motion.div>
             )}
           </div>
         </section>

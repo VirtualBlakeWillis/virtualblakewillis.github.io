@@ -1,9 +1,7 @@
 import { motion } from "motion/react";
 import {
-  Code2,
   Database,
   Globe,
-  Layers,
   Terminal,
   Workflow,
   ArrowRight,
@@ -18,143 +16,234 @@ export function AboutPage() {
       category: "Frontend",
       icon: Globe,
       items: ["React", "TypeScript", "Vite", "Tailwind CSS", "SCSS", "TanStack"],
-      color: "from-blue-500 to-cyan-500",
     },
     {
       category: "Backend",
       icon: Terminal,
       items: ["Node.js", "Express", "Rest APIs", "Zod", "Auth0"],
-      color: "from-green-500 to-emerald-500",
     },
     {
       category: "Database",
       icon: Database,
       items: ["PostgreSQL", "MongoDB", "QuickBase", "MySQL", "Firebase"],
-      color: "from-purple-500 to-pink-500",
     },
     {
       category: "Tools & More",
       icon: Workflow,
-      items: ["Git", "CI/CD", "Testing", "Sentry", "Netlify",],
-      color: "from-orange-500 to-red-500",
+      items: ["Git", "CI/CD", "Testing", "Sentry", "Netlify"],
     },
   ];
 
   const timeline = [
-   
     {
       year: "2025",
       title: "Full Stack Web Developer",
       company: "LearnCraft Spanish",
-      description: "With a split focus on delivering features for customers and optomizing internal processes, I've been able to contribute to the growth of LearnCraft Spanish",
+      description:
+        "With a split focus on delivering features for customers and optimizing internal processes, I've been able to contribute to the growth of LearnCraft Spanish.",
     },
     {
       year: "2024",
       title: "Junior Javascript Engineer",
       company: "LearnCraft Spanish",
-      description: "Started my professional journey as a Javascript Engineer, Learning the ropes and building LearnCraft Spanish into a sustainable tech product",
+      description:
+        "Started my professional journey as a Javascript Engineer, learning the ropes and building LearnCraft Spanish into a sustainable tech product.",
     },
   ];
 
   return (
-    <div className="min-h-screen pt-24">
-      {/* Hero Section */}
-      <section className="py-20 px-6">
+    <div
+      className="min-h-screen"
+      style={{ fontFamily: "'Open Sans', sans-serif", backgroundColor: "#fafafa" }}
+    >
+      {/* ── Intro Section ── */}
+      <section className="py-32 px-6" style={{ backgroundColor: "#fafafa" }}>
         <div className="max-w-7xl mx-auto">
           <div className="grid md:grid-cols-2 gap-16 items-center">
+
+            {/* Text — left */}
             <motion.div
               initial={{ opacity: 0, x: -50 }}
               animate={{ opacity: 1, x: 0 }}
               transition={{ duration: 0.8 }}
             >
-              <motion.div
-                className="relative rounded-2xl overflow-hidden shadow-2xl"
-                whileHover={{ scale: 1.02 }}
-                transition={{ duration: 0.3 }}
+              <p
+                style={{
+                  fontFamily: "'Open Sans', sans-serif",
+                  fontSize: "11px",
+                  letterSpacing: "0.28em",
+                  textTransform: "uppercase",
+                  color: "#aaaaaa",
+                  marginBottom: "1.25rem",
+                }}
               >
-                <ImageWithFallback
-                  src={BlakePortfolioPic}
-                  alt="Professional portrait"
-                  className="w-full h-[500px] object-cover"
-                />
-                {/* <div className="absolute inset-0 bg-gradient-to-tr from-purple-600/20 to-blue-600/20" /> */}
-              </motion.div>
+                About
+              </p>
+              <h1
+                style={{
+                  fontFamily: "'Open Sans', sans-serif",
+                  fontSize: "clamp(3rem, 5vw, 5.25rem)",
+                  fontWeight: 700,
+                  lineHeight: 1.05,
+                  letterSpacing: "-0.02em",
+                  color: "#0a0a0a",
+                  marginBottom: "1.5rem",
+                }}
+              >
+                Hey, I'm{" "}
+                <span style={{ fontFamily: "'Bungee', cursive", fontWeight: 400 }}>
+                  Blake.
+                </span>
+              </h1>
+              <p
+                style={{
+                  fontFamily: "'Open Sans', sans-serif",
+                  fontSize: "1rem",
+                  lineHeight: 1.75,
+                  color: "#555555",
+                  marginBottom: "1.25rem",
+                  maxWidth: "32rem",
+                }}
+              >
+                I'm a full stack developer based in Tulsa, OK. I've had the
+                opportunity to work on a diverse range of projects, from startup
+                environments to local non-profits. I'm a quick learner and a
+                high-impact contributor.
+              </p>
+              <p
+                style={{
+                  fontFamily: "'Open Sans', sans-serif",
+                  fontSize: "1rem",
+                  lineHeight: 1.75,
+                  color: "#555555",
+                  marginBottom: "2rem",
+                  maxWidth: "32rem",
+                }}
+              >
+                I specialize in translating business needs into elegant,
+                functional, and user-friendly web applications. If you can dream
+                it, I can build it.
+              </p>
+              <div className="flex items-center gap-6">
+                <Link
+                  to="/contact"
+                  className="inline-flex items-center gap-2"
+                  style={{
+                    fontFamily: "'Open Sans', sans-serif",
+                    fontSize: "11px",
+                    letterSpacing: "0.2em",
+                    textTransform: "uppercase",
+                    fontWeight: 600,
+                    padding: "12px 28px",
+                    backgroundColor: "#111111",
+                    color: "#ffffff",
+                    borderRadius: "9999px",
+                    textDecoration: "none",
+                    transition: "background 0.2s",
+                  }}
+                  onMouseEnter={(e) => {
+                    (e.currentTarget as HTMLAnchorElement).style.backgroundColor = "#333333";
+                  }}
+                  onMouseLeave={(e) => {
+                    (e.currentTarget as HTMLAnchorElement).style.backgroundColor = "#111111";
+                  }}
+                >
+                  Get In Touch
+                  <ArrowRight size={14} />
+                </Link>
+                <Link
+                  to="/portfolio"
+                  style={{
+                    fontFamily: "'Open Sans', sans-serif",
+                    fontSize: "11px",
+                    letterSpacing: "0.2em",
+                    textTransform: "uppercase",
+                    fontWeight: 600,
+                    color: "#888888",
+                    textDecoration: "none",
+                    transition: "color 0.15s",
+                  }}
+                  onMouseEnter={(e) => {
+                    (e.currentTarget as HTMLAnchorElement).style.color = "#0a0a0a";
+                  }}
+                  onMouseLeave={(e) => {
+                    (e.currentTarget as HTMLAnchorElement).style.color = "#888888";
+                  }}
+                >
+                  View Work
+                </Link>
+              </div>
             </motion.div>
 
+            {/* Photo — right */}
             <motion.div
               initial={{ opacity: 0, x: 50 }}
               animate={{ opacity: 1, x: 0 }}
               transition={{ duration: 0.8 }}
             >
-              <motion.h1
-                className="text-5xl md:text-6xl font-bold mb-6"
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.8, delay: 0.2 }}
-              >
-                About Me
-              </motion.h1>
-              <motion.p
-                className="text-xl text-muted-foreground mb-6 leading-relaxed"
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.8, delay: 0.3 }}
-              >
-                  Hey, I'm Blake. I'm a full stack developer based in Tulsa, OK.
-                  I've had the oppertunity to work on a diverse range of projects,
-                  from startup enviroments to local non-profits. I'm a quick learner
-                   and a high impact contributor.
-              </motion.p>
-              <motion.p
-                className="text-xl text-muted-foreground mb-6 leading-relaxed"
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.8, delay: 0.4 }}
-              >
-                I specialize translating your business needs into elegant, functional, and user-friendly web applications. If you can dream it, I can build it.
-              </motion.p>
               <motion.div
-                className="flex gap-4 items-center"
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.8, delay: 0.5 }}
+                style={{
+                  borderRadius: "14px",
+                  overflow: "hidden",
+                  boxShadow: "0 12px 40px rgba(0,0,0,0.08), 0 2px 8px rgba(0,0,0,0.04)",
+                }}
+                whileHover={{ scale: 1.02 }}
+                transition={{ duration: 0.3 }}
               >
-                <motion.div
-                  className="p-4 bg-gradient-to-br from-purple-500 to-pink-500 rounded-xl"
-                  animate={{ rotate: 360 }}
-                  transition={{ duration: 20, repeat: Infinity, ease: "linear" }}
-                >
-                  <Code2 size={32} className="text-white" />
-                </motion.div>
-                <motion.div
-                  className="p-4 bg-gradient-to-br from-blue-500 to-cyan-500 rounded-xl"
-                  animate={{ rotate: -360 }}
-                  transition={{ duration: 20, repeat: Infinity, ease: "linear" }}
-                >
-                  <Layers size={32} className="text-white" />
-                </motion.div>
+                <ImageWithFallback
+                  src={BlakePortfolioPic}
+                  alt="Professional portrait of Blake Willis"
+                  className="w-full h-[500px] object-cover"
+                />
               </motion.div>
             </motion.div>
           </div>
         </div>
       </section>
 
-      {/* Skills Section */}
-      <section className="py-20 px-6 bg-accent/30">
+      {/* ── Skills Section ── */}
+      <section className="py-32 px-6" style={{ backgroundColor: "#f7f7f7" }}>
         <div className="max-w-7xl mx-auto">
+
+          {/* Section header */}
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.8 }}
-            className="text-center mb-16"
+            className="mb-16"
+            style={{ borderBottom: "1px solid #e5e5e5", paddingBottom: "2rem" }}
           >
-            <h2 className="text-5xl font-bold mb-4">Skills & Expertise</h2>
-            <p className="text-xl text-muted-foreground">
-              Technologies I work with
+            <p
+              style={{
+                fontFamily: "'Open Sans', sans-serif",
+                fontSize: "11px",
+                letterSpacing: "0.28em",
+                textTransform: "uppercase",
+                color: "#aaaaaa",
+                marginBottom: "1rem",
+              }}
+            >
+              Skills & Expertise
             </p>
+            <h2
+              style={{
+                fontFamily: "'Open Sans', sans-serif",
+                fontSize: "clamp(2rem, 4vw, 3.5rem)",
+                fontWeight: 700,
+                color: "#0a0a0a",
+                lineHeight: 1.1,
+                letterSpacing: "-0.02em",
+              }}
+            >
+              Technologies I{" "}
+              <span style={{ fontFamily: "'Bungee', cursive", fontWeight: 400 }}>
+                work with.
+              </span>
+            </h2>
           </motion.div>
 
+          {/* Skill cards */}
           <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
             {skills.map((skill, index) => (
               <motion.div
@@ -163,34 +252,74 @@ export function AboutPage() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.6, delay: index * 0.1 }}
-                whileHover={{ y: -10 }}
-                className="bg-card rounded-2xl p-6 shadow-lg"
+                whileHover={{ y: -6 }}
+                style={{
+                  backgroundColor: "#ffffff",
+                  borderRadius: "14px",
+                  border: "1px solid #ebebeb",
+                  boxShadow: "0 4px 20px rgba(0,0,0,0.05), 0 1px 4px rgba(0,0,0,0.04)",
+                  padding: "1.5rem",
+                }}
               >
-                <motion.div
-                  className={`inline-block p-4 bg-gradient-to-br ${skill.color} rounded-xl mb-4`}
-                  whileHover={{ rotate: 360, scale: 1.1 }}
-                  transition={{ duration: 0.6 }}
+                {/* Icon */}
+                <div
+                  style={{
+                    display: "inline-flex",
+                    alignItems: "center",
+                    justifyContent: "center",
+                    width: "48px",
+                    height: "48px",
+                    backgroundColor: "#f0f0f0",
+                    borderRadius: "10px",
+                    marginBottom: "1.25rem",
+                    color: "#555555",
+                  }}
                 >
-                  <skill.icon size={32} className="text-white" />
-                </motion.div>
-                <h3 className="text-2xl font-bold mb-4">{skill.category}</h3>
-                <ul className="space-y-2">
+                  <skill.icon size={22} />
+                </div>
+
+                <h3
+                  style={{
+                    fontFamily: "'Open Sans', sans-serif",
+                    fontSize: "1.1rem",
+                    fontWeight: 700,
+                    color: "#0a0a0a",
+                    letterSpacing: "-0.01em",
+                    marginBottom: "1rem",
+                  }}
+                >
+                  {skill.category}
+                </h3>
+
+                <ul style={{ listStyle: "none", padding: 0, margin: 0 }}>
                   {skill.items.map((item, itemIndex) => (
                     <motion.li
                       key={item}
-                      initial={{ opacity: 0, x: -20 }}
+                      initial={{ opacity: 0, x: -10 }}
                       whileInView={{ opacity: 1, x: 0 }}
                       viewport={{ once: true }}
-                      transition={{ duration: 0.4, delay: index * 0.1 + itemIndex * 0.05 }}
-                      className="text-muted-foreground flex items-center gap-2"
+                      transition={{
+                        duration: 0.3,
+                        delay: index * 0.1 + itemIndex * 0.05,
+                      }}
+                      style={{
+                        display: "flex",
+                        alignItems: "center",
+                        gap: "10px",
+                        fontFamily: "'Open Sans', sans-serif",
+                        fontSize: "0.875rem",
+                        color: "#666666",
+                        lineHeight: 1.65,
+                        paddingBottom: "0.35rem",
+                      }}
                     >
-                      <motion.span
-                        className={`w-2 h-2 rounded-full bg-gradient-to-r ${skill.color}`}
-                        animate={{ scale: [1, 1.2, 1] }}
-                        transition={{
-                          duration: 2,
-                          repeat: Infinity,
-                          delay: itemIndex * 0.2,
+                      <span
+                        style={{
+                          width: "5px",
+                          height: "5px",
+                          borderRadius: "9999px",
+                          backgroundColor: "#cccccc",
+                          flexShrink: 0,
                         }}
                       />
                       {item}
@@ -203,31 +332,68 @@ export function AboutPage() {
         </div>
       </section>
 
-      {/* Experience Timeline */}
-      <section className="py-20 px-6">
+      {/* ── Experience Timeline ── */}
+      <section className="py-32 px-6" style={{ backgroundColor: "#ffffff" }}>
         <div className="max-w-4xl mx-auto">
+
+          {/* Section header */}
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.8 }}
-            className="text-center mb-16"
+            className="mb-16"
+            style={{ borderBottom: "1px solid #e5e5e5", paddingBottom: "2rem" }}
           >
-            <h2 className="text-5xl font-bold mb-4">Experience</h2>
-            <p className="text-xl text-muted-foreground">My professional journey</p>
+            <p
+              style={{
+                fontFamily: "'Open Sans', sans-serif",
+                fontSize: "11px",
+                letterSpacing: "0.28em",
+                textTransform: "uppercase",
+                color: "#aaaaaa",
+                marginBottom: "1rem",
+              }}
+            >
+              Experience
+            </p>
+            <h2
+              style={{
+                fontFamily: "'Open Sans', sans-serif",
+                fontSize: "clamp(2rem, 4vw, 3.5rem)",
+                fontWeight: 700,
+                color: "#0a0a0a",
+                lineHeight: 1.1,
+                letterSpacing: "-0.02em",
+              }}
+            >
+              My professional{" "}
+              <span style={{ fontFamily: "'Bungee', cursive", fontWeight: 400 }}>
+                journey.
+              </span>
+            </h2>
           </motion.div>
 
-          <div className="relative">
-            {/* Timeline Line */}
+          {/* Timeline entries */}
+          <div style={{ position: "relative" }}>
+            {/* Vertical line */}
             <motion.div
-              className="absolute left-8 top-0 bottom-0 w-0.5 bg-gradient-to-b from-purple-600 via-blue-600 to-cyan-600"
               initial={{ scaleY: 0 }}
               whileInView={{ scaleY: 1 }}
               viewport={{ once: true }}
-              transition={{ duration: 1.5 }}
+              transition={{ duration: 1.2 }}
+              style={{
+                position: "absolute",
+                left: "1.5rem",
+                top: 0,
+                bottom: 0,
+                width: "1px",
+                backgroundColor: "#e5e5e5",
+                transformOrigin: "top",
+              }}
             />
 
-            <div className="space-y-12">
+            <div style={{ display: "flex", flexDirection: "column", gap: "2.5rem" }}>
               {timeline.map((item, index) => (
                 <motion.div
                   key={item.year}
@@ -235,29 +401,91 @@ export function AboutPage() {
                   whileInView={{ opacity: 1, x: 0 }}
                   viewport={{ once: true }}
                   transition={{ duration: 0.6, delay: index * 0.2 }}
-                  className="relative pl-20"
+                  style={{ position: "relative", paddingLeft: "4.5rem" }}
                 >
-                  {/* Timeline Dot */}
+                  {/* Dot */}
                   <motion.div
-                    className="absolute left-6 top-0 w-5 h-5 rounded-full bg-gradient-to-r from-purple-600 to-blue-600 border-4 border-background"
                     initial={{ scale: 0 }}
                     whileInView={{ scale: 1 }}
                     viewport={{ once: true }}
                     transition={{ duration: 0.4, delay: index * 0.2 }}
-                    whileHover={{ scale: 1.5 }}
+                    style={{
+                      position: "absolute",
+                      left: "calc(1.5rem - 5px)",
+                      top: "1.5rem",
+                      width: "11px",
+                      height: "11px",
+                      borderRadius: "9999px",
+                      backgroundColor: "#111111",
+                      border: "2px solid #ffffff",
+                      boxShadow: "0 0 0 1px #e5e5e5",
+                    }}
                   />
 
+                  {/* Card */}
                   <motion.div
-                    className="bg-card rounded-2xl p-6 shadow-lg"
-                    whileHover={{ scale: 1.02, x: 10 }}
+                    whileHover={{ y: -4 }}
                     transition={{ duration: 0.3 }}
+                    style={{
+                      backgroundColor: "#ffffff",
+                      borderRadius: "14px",
+                      border: "1px solid #ebebeb",
+                      boxShadow: "0 4px 20px rgba(0,0,0,0.05), 0 1px 4px rgba(0,0,0,0.04)",
+                      padding: "1.5rem",
+                    }}
                   >
-                    <span className="inline-block px-4 py-1 bg-gradient-to-r from-purple-600 to-blue-600 text-white rounded-full text-sm mb-3">
+                    {/* Year badge */}
+                    <span
+                      style={{
+                        display: "inline-block",
+                        fontFamily: "'Open Sans', sans-serif",
+                        fontSize: "10px",
+                        letterSpacing: "0.12em",
+                        textTransform: "uppercase",
+                        fontWeight: 600,
+                        padding: "4px 12px",
+                        backgroundColor: "#f0f0f0",
+                        color: "#555555",
+                        borderRadius: "9999px",
+                        marginBottom: "0.75rem",
+                      }}
+                    >
                       {item.year}
                     </span>
-                    <h3 className="text-2xl font-bold mb-1">{item.title}</h3>
-                    <p className="text-purple-600 mb-3">{item.company}</p>
-                    <p className="text-muted-foreground">{item.description}</p>
+                    <h3
+                      style={{
+                        fontFamily: "'Open Sans', sans-serif",
+                        fontSize: "1.25rem",
+                        fontWeight: 700,
+                        color: "#0a0a0a",
+                        letterSpacing: "-0.01em",
+                        marginBottom: "0.25rem",
+                      }}
+                    >
+                      {item.title}
+                    </h3>
+                    <p
+                      style={{
+                        fontFamily: "'Open Sans', sans-serif",
+                        fontSize: "0.875rem",
+                        fontWeight: 600,
+                        color: "#888888",
+                        marginBottom: "0.75rem",
+                        letterSpacing: "0.01em",
+                      }}
+                    >
+                      {item.company}
+                    </p>
+                    <p
+                      style={{
+                        fontFamily: "'Open Sans', sans-serif",
+                        fontSize: "0.875rem",
+                        color: "#666666",
+                        lineHeight: 1.65,
+                      }}
+                    >
+                      {item.description}
+                    </p>
                   </motion.div>
                 </motion.div>
               ))}
@@ -265,56 +493,90 @@ export function AboutPage() {
           </div>
         </div>
       </section>
-{/* 
-      <section className="py-20 px-6 bg-gradient-to-br from-purple-600 to-blue-600 text-white">
-        <div className="max-w-7xl mx-auto">
-          <div className="grid md:grid-cols-4 gap-8 text-center">
-            {[
-              { number: "5+", label: "Years Experience" },
-              { number: "50+", label: "Projects Completed" },
-              { number: "30+", label: "Happy Clients" },
-              { number: "100%", label: "Dedication" },
-            ].map((stat, index) => (
-              <motion.div
-                key={stat.label}
-                initial={{ opacity: 0, scale: 0.5 }}
-                whileInView={{ opacity: 1, scale: 1 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.6, delay: index * 0.1 }}
-                whileHover={{ scale: 1.1 }}
-              >
-                <motion.div
-                  className="text-6xl font-bold mb-2"
-                  initial={{ opacity: 0 }}
-                  whileInView={{ opacity: 1 }}
-                  viewport={{ once: true }}
-                  transition={{ duration: 1, delay: index * 0.1 }}
-                >
-                  {stat.number}
-                </motion.div>
-                <div className="text-xl opacity-90">{stat.label}</div>
-              </motion.div>
-            ))}
-          </div>
-        </div>
-      </section> */}
 
-      {/* CTA Section */}
-      <section className="py-32 px-6 bg-gradient-to-br from-purple-600 to-blue-600 text-white">
-        <div className="max-w-4xl mx-auto text-center">
-          
-            <h2 className="text-5xl font-bold mb-6">Let's Work Together</h2>
-            <p className="text-xl mb-8 opacity-90">
-              Have a project in mind? I'd love to hear about it and discuss how we
-              can bring your ideas to life.
+      {/* ── CTA Section ── */}
+      <section className="py-32 px-6" style={{ backgroundColor: "#0a0a0a" }}>
+        <div className="max-w-4xl mx-auto">
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.8 }}
+          >
+            <p
+              style={{
+                fontFamily: "'Open Sans', sans-serif",
+                fontSize: "11px",
+                letterSpacing: "0.28em",
+                textTransform: "uppercase",
+                color: "#555555",
+                marginBottom: "1.5rem",
+              }}
+            >
+              Let's talk
             </p>
-            <Link 
+            <h2
+              style={{
+                fontFamily: "'Open Sans', sans-serif",
+                fontSize: "clamp(2.5rem, 5vw, 4.5rem)",
+                fontWeight: 700,
+                color: "#ffffff",
+                lineHeight: 1.05,
+                letterSpacing: "-0.02em",
+                marginBottom: "1.5rem",
+              }}
+            >
+              Let's Work{" "}
+              <span
+                style={{
+                  fontFamily: "'Bungee', cursive",
+                  fontWeight: 400,
+                  color: "#e5e5e5",
+                }}
+              >
+                Together.
+              </span>
+            </h2>
+            <p
+              style={{
+                fontFamily: "'Open Sans', sans-serif",
+                fontSize: "1rem",
+                lineHeight: 1.75,
+                color: "#888888",
+                marginBottom: "2.5rem",
+                maxWidth: "32rem",
+              }}
+            >
+              Have a project in mind? I'd love to hear about it and discuss how
+              we can bring your ideas to life.
+            </p>
+            <Link
               to="/contact"
-              className="px-8 py-4 bg-white text-purple-600 rounded-lg hover:bg-gray-100 transition-colors inline-flex items-center gap-2"
+              className="inline-flex items-center gap-2"
+              style={{
+                fontFamily: "'Open Sans', sans-serif",
+                fontSize: "11px",
+                letterSpacing: "0.2em",
+                textTransform: "uppercase",
+                fontWeight: 600,
+                padding: "12px 28px",
+                backgroundColor: "#ffffff",
+                color: "#111111",
+                borderRadius: "9999px",
+                textDecoration: "none",
+                transition: "background 0.2s",
+              }}
+              onMouseEnter={(e) => {
+                (e.currentTarget as HTMLAnchorElement).style.backgroundColor = "#e5e5e5";
+              }}
+              onMouseLeave={(e) => {
+                (e.currentTarget as HTMLAnchorElement).style.backgroundColor = "#ffffff";
+              }}
             >
               Start a Conversation
-              <ArrowRight size={20} />
+              <ArrowRight size={14} />
             </Link>
+          </motion.div>
         </div>
       </section>
     </div>

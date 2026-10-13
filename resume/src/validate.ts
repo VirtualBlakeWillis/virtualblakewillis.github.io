@@ -139,12 +139,11 @@ function readProfile(read: Reader, value: unknown, path: string): Pick<ResumeDat
 }
 
 function readHeader(read: Reader, value: unknown, path: string): Header {
-  const fields = read.record(value, path, ["name", "headline", "email", "phone", "location", "links"]);
+  const fields = read.record(value, path, ["name", "headline", "email", "location", "links"]);
   return {
     name: read.string(fields.name, `${path}.name`),
     headline: read.string(fields.headline, `${path}.headline`),
     email: read.string(fields.email, `${path}.email`),
-    phone: read.string(fields.phone, `${path}.phone`),
     location: read.string(fields.location, `${path}.location`),
     links: read.array(fields.links, `${path}.links`, (item, itemPath) => readLink(read, item, itemPath)),
   };

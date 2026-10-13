@@ -51,7 +51,6 @@ export interface Header {
   name: string;
   headline: string;
   email: string;
-  phone: string;
   location: string;
   links: Link[];
 }

@@ -14,7 +14,6 @@ export function rawFixture() {
       name: "Test Person",
       headline: "Engineer",
       email: "test@example.com",
-      phone: "(555) 555-5555",
       location: "Tulsa, OK",
       links: [{ text: "example.com", url: "https://example.com" }],
     },

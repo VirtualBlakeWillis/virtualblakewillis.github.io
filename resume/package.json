@@ -1,0 +1,19 @@
+{
+  "name": "resume",
+  "private": true,
+  "version": "0.0.0",
+  "type": "module",
+  "exports": {
+    ".": "./src/index.ts"
+  },
+  "scripts": {
+    "test": "vitest run",
+    "typecheck": "tsc",
+    "validate": "node src/check.ts"
+  },
+  "devDependencies": {
+    "@types/node": "^24",
+    "typescript": "~5.8.3",
+    "vitest": "^5.0.4"
+  }
+}

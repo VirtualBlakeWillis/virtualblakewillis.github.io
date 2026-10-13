@@ -4,7 +4,9 @@
   "packageManager": "pnpm@10.6.1",
   "scripts": {
     "dev": "pnpm --filter web dev",
-    "build": "pnpm --filter web build",
-    "lint": "pnpm --filter web lint"
+    "build": "pnpm --filter resume validate && pnpm --filter web build",
+    "lint": "pnpm --filter web lint",
+    "test": "pnpm -r test",
+    "typecheck": "pnpm -r typecheck"
   }
 }

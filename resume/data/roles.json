@@ -1,0 +1,154 @@
+[
+  {
+    "kind": "job",
+    "id": "learncraft-full-stack",
+    "title": "Full Stack Web Developer",
+    "employer": "LearnCraft Spanish",
+    "location": "Tulsa, OK",
+    "start": "2024-11",
+    "end": "present",
+    "bullets": [
+      {
+        "id": "learncraft-full-stack-features-and-admin-overhaul",
+        "text": "Working with the CTO and our team of ~30 Employees, We continued to improve existing features & rollout new features for our end users. Overhauled the majority of our internal data management interfaces to improve the experience of our Employees, and reduce company cost on admin time.",
+        "tags": ["Collaboration", "Full Stack Development", "Internal Tools"],
+        "standard": true
+      },
+      {
+        "id": "learncraft-full-stack-data-interfaces-savings",
+        "text": "Overhauled our internal data management interfaces and streamlined many avenues of searching, creating, and analyzing data. Saved the company ~9000 in increased software subscription price, and ~2% of overall budget expenditures previously spent on employee admin time.",
+        "tags": ["Internal Tools"],
+        "standard": true
+      }
+    ]
+  },
+  {
+    "kind": "job",
+    "id": "learncraft-junior-js",
+    "title": "Junior Javascript Engineer",
+    "employer": "LearnCraft Spanish",
+    "location": "Tulsa, OK",
+    "start": "2024-08",
+    "end": "2024-11",
+    "bullets": [
+      {
+        "id": "learncraft-junior-js-maintainable-features",
+        "text": "Assisted the CTO with building robust, maintainable features to improve the experience of our internal tools and customer facing products",
+        "tags": ["Collaboration", "Internal Tools"],
+        "standard": false
+      },
+      {
+        "id": "learncraft-junior-js-production-bugs",
+        "text": "Reduced known bugs in production by 98% (400/wk to >10/wk)",
+        "tags": ["Debugging"],
+        "standard": true
+      },
+      {
+        "id": "learncraft-junior-js-typescript-conversion",
+        "text": "Lead a project to convert entire SPA React app to Typescript",
+        "tags": ["React", "TypeScript", "Technical Leadership"],
+        "standard": true
+      },
+      {
+        "id": "learncraft-junior-js-ci-testing",
+        "text": "Implemented testing for the first time in our CI/CD pipeline, giving the team more confidence when pushing code to production",
+        "tags": ["Automated Testing", "CI/CD"],
+        "standard": true
+      }
+    ]
+  },
+  {
+    "kind": "job",
+    "id": "vail-snowboard-instructor",
+    "title": "Certified Snowboard Instructor-Full-time",
+    "employer": "Vail Resorts",
+    "location": "Keystone, CO",
+    "start": "2021-11",
+    "end": "2022-04",
+    "bullets": []
+  },
+  {
+    "kind": "project",
+    "id": "techlahoma-check-in",
+    "name": "Techlahoma UserGroup Attendee Check-In Platform",
+    "title": "Sole Front-End Developer",
+    "end": "present",
+    "standard": true,
+    "bullets": [
+      {
+        "id": "techlahoma-check-in-figma-design",
+        "text": "As our team's sole Front-End Developer, I created our design on Figma and implemented it using Javascript, CSS, and Jinja2, an HTML templating engine for Python Back-End applications.",
+        "tags": ["CSS", "Figma", "Front-End Development", "HTML", "JavaScript", "Jinja2", "UI Design"],
+        "standard": true
+      },
+      {
+        "id": "techlahoma-check-in-grant-impact",
+        "text": "Quantified Techlahoma's impact on who they serve to streamline the process of grant applications.",
+        "tags": ["Data Analysis"],
+        "standard": false
+      },
+      {
+        "id": "techlahoma-check-in-incentives-program",
+        "text": "Introduced a unique incentives program, rewarding attendees with points for check-ins, redeemable for discounted or free Techlahoma conference tickets.",
+        "tags": [],
+        "standard": true
+      },
+      {
+        "id": "techlahoma-check-in-profile-call-to-action",
+        "text": "Implemented a call-to-action feature for users to earn additional points by providing optional information like zip code, phone number, and Linkedin profile URL.",
+        "tags": ["Front-End Development"],
+        "standard": false
+      },
+      {
+        "id": "techlahoma-check-in-neoncrm-integration",
+        "text": "Integrated seamlessly with Techlahoma’s existing Nonprofit CRM, NeonCRM, utilizing its REST API for data management and user authentication.",
+        "tags": ["NeonCRM", "REST APIs"],
+        "standard": true
+      }
+    ]
+  },
+  {
+    "kind": "project",
+    "id": "atlas-holbegram",
+    "name": "Atlas Holbegram",
+    "title": "Sole Developer",
+    "end": "present",
+    "standard": false,
+    "bullets": [
+      {
+        "id": "atlas-holbegram-flutter-app",
+        "text": "Solely developed a mobile application intended for Android and iOS using the Dart programming language and Flutter Software Development Kit.",
+        "tags": ["Dart", "Flutter", "Mobile Development"],
+        "standard": true
+      },
+      {
+        "id": "atlas-holbegram-firebase-services",
+        "text": "Integrated Firebase services including real-time database, cloud storage, and authentication by implementing custom models for user data, prioritizing efficient data management and reliable authentication processes.",
+        "tags": ["Firebase", "Mobile Development"],
+        "standard": true
+      },
+      {
+        "id": "atlas-holbegram-figma-specs",
+        "text": "Followed design specs from Figma user interface files, transmuting static layouts into a dynamic mobile application.",
+        "tags": ["Figma", "Mobile Development"],
+        "standard": true
+      }
+    ]
+  },
+  {
+    "kind": "project",
+    "id": "space-quiz",
+    "name": "Space Quiz",
+    "title": "Developer",
+    "end": "present",
+    "standard": false,
+    "bullets": [
+      {
+        "id": "space-quiz-data-transfer",
+        "text": "Demonstrated strong collaboration and technical expertise by efficiently managing data transfer between different sections of the website, namely the back-end server/API and front-end quiz logic.",
+        "tags": ["Collaboration", "Full Stack Development"],
+        "standard": true
+      }
+    ]
+  }
+]

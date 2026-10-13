@@ -1,0 +1,28 @@
+{
+  "header": {
+    "name": "Blake Willis",
+    "headline": "Full Stack Software Engineer",
+    "email": "bewillis101@gmail.com",
+    "location": "Tulsa, OK",
+    "links": [
+      { "text": "linkedin.com/in/virtual-blake-willis", "url": "https://linkedin.com/in/virtual-blake-willis" },
+      { "text": "https://github.com/VirtualBlakeWillis", "url": "https://github.com/VirtualBlakeWillis" },
+      { "text": "virtualblakewillis.com", "url": "https://virtualblakewillis.com" }
+    ]
+  },
+  "summaries": [
+    {
+      "id": "full-stack",
+      "text": "Solution-oriented Full Stack Software Engineer with a Web Development diploma and critical startup experience. Adept at self-directed learning, collaborating with colleagues to deliver robust solutions, and clearly communicating with non-technical users and superiors.",
+      "standard": true
+    }
+  ],
+  "education": [
+    {
+      "school": "Atlas School",
+      "credential": "Diploma",
+      "field": "Computer Science And Full Stack Web Development",
+      "end": "2024-04"
+    }
+  ]
+}
